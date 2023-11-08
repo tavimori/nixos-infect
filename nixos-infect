@@ -35,6 +35,7 @@ makeConf() {
     $NIXOS_IMPORT
   ];
 
+  nix.settings.substituters = [ "https://mirrors.ustc.edu.cn/nix-channels/store" ];
   boot.cleanTmpDir = true;
   zramSwap.enable = ${zramswap};
   networking.hostName = "$(hostname -s)";
