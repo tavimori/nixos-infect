@@ -318,14 +318,14 @@ infect() {
   #addgroup nixbld -g 30000 || true
   #for i in {1..10}; do adduser -DH -G nixbld nixbld$i || true; done
 
-  curl -L https://nixos.org/nix/install | sh -s -- --no-channel-add
+  curl -L https://mirrors.tuna.tsinghua.edu.cn/nix/latest/install | sh -s -- --no-channel-add
 
   # shellcheck disable=SC1090
   source ~/.nix-profile/etc/profile.d/nix.sh
 
   [[ -z "$NIX_CHANNEL" ]] && NIX_CHANNEL="nixos-23.05"
   nix-channel --remove nixpkgs
-  nix-channel --add "https://nixos.org/channels/$NIX_CHANNEL" nixos
+  nix-channel --add "https://mirrors.ustc.edu.cn/nix-channels/$NIX_CHANNEL" nixos
   nix-channel --update
 
   if [[ $NIXOS_CONFIG = http* ]]
