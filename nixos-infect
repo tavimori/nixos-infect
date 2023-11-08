@@ -341,7 +341,8 @@ infect() {
     -I nixpkgs=$HOME/.nix-defexpr/channels/nixos \
     -f '<nixpkgs/nixos>' \
     -p /nix/var/nix/profiles/system \
-    -A system
+    -A system \
+    --option substituters https://mirror.sjtu.edu.cn/nix-channels/store
 
   # Remove nix installed with curl | bash
   rm -fv /nix/var/nix/profiles/default*
